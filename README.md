@@ -20,6 +20,7 @@ We can perform our CRUD requests by specifying the method (GET, DELETE, etc) in 
 Using the API key that we got above, we can make some test calls to the API to query different sets of information.
 
 To get a list of all the recipes in the database, we would do<br>```GET https://api.spoonacular.com/recipes/complexSearch?apiKey=YOUR-API-KEY```<br>
+in something like Postman.<br>
 This request will return a paginated JSON response of recipes that looks something like this:
 ```json
 {
@@ -89,4 +90,17 @@ This request will return a paginated JSON response of recipes that looks somethi
     "number": 10,
     "totalResults": 5222
 }
+```
+
+<br><br>
+This request can be made in PHP with <br>
+```
+Route::get('/spoonacular', function(Request $request) {
+    $id = $request->query('id');
+    return Http::withHeaders([
+        'Authorization' => "Bearer " . env('YOUR-API-KEY'),
+    ])
+    ->get("https://api.spoonacular.com/recipes/complexSearch")
+    ->json();
+});
 ```
