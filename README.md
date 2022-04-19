@@ -11,6 +11,7 @@ To get started, you must get authorization to be able to use the Spoonacular API
 
 1. Create an account at https://spoonacular.com/food-api/console#Dashboard
 2. Find API key under "MY CONSOLE" tab at the top right.
+<img src = "apiimg.png">
 3. Copy API key to clipboard.
 
 ## Using the API
